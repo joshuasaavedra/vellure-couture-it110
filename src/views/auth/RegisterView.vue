@@ -16,8 +16,9 @@ function handlePhoneInput(event) {
 }
 </script>
 
+
 <template>
-  <v-responsive class="border rounded">
+<v-responsive class="border rounded">
     <v-app :theme="theme">
       <v-app-bar class="px-3" color="teal-darken-4">
         <v-spacer></v-spacer>
@@ -37,36 +38,53 @@ function handlePhoneInput(event) {
             <v-col cols="12" md="6" class="d-flex align-center pa-0">
               <v-card class="mx-auto" elevation="8" outlined>
                 <template v-slot:title>
-                  <span class="font-weight-black text-teal-darken-4">Welcome to Vellure Couture!</span>
+                  <span class="font-weight-black text-teal-darken-4">Register to Vellure Couture!</span>
                 </template>
 
                 <!-- Form with Email, Phone, and Password -->
                 <v-card-text class="bg-surface-light pt-4">
                   <v-form fast-fail @submit.prevent>
+                    <v-text-field label= "Firstname"  variant="outlined"></v-text-field>
+
+                    <v-text-field label= "Lastname"  variant="outlined"></v-text-field>
                     <!-- Email Field -->
                     <v-text-field
                       label="Email"
-                      v-model="email"
+                       variant="outlined"
+                    ></v-text-field>
+
+                    <!-- Phone Number Field (Only Numbers) -->
+                    <v-text-field
+                      label="Phone Number"
+                       variant="outlined"
+                      type="tel"
+                      @input="handlePhoneInput"
                     ></v-text-field>
 
                     <!-- Password Field -->
                     <v-text-field
                       label="Password"
                       type="password"
-                      v-model="password"
+                      variant="outlined"
+                    ></v-text-field>
+
+                    <v-text-field
+                      label="Password confirmation"
+                      type="password"
+                      variant="outlined"
                     ></v-text-field>
 
                     <!-- Login Button -->
                     <v-btn class="mt-2" type="submit" block color="teal-darken-4">Login</v-btn>
 
+                    <!-- Register Text Below Button (Smaller Text, No Box) -->
 
                   </v-form>
-
                   <v-divider class="my-5"></v-divider>
 
-<h5 class="text-center">
-  Don't have an account? <RouterLink to="/register">Click here to Register</RouterLink>
-</h5>
+                   <h5 class="text-center">
+                    Already have account?<RouterLink to ="/">Click here to Login</RouterLink>
+                </h5>
                 </v-card-text>
               </v-card>
             </v-col>
@@ -87,4 +105,5 @@ function handlePhoneInput(event) {
       <v-footer class="d-flex justify-center" color="teal-darken-4" border app>2025 - Vellure Couture</v-footer>
     </v-app>
   </v-responsive>
+
 </template>
